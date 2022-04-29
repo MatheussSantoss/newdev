@@ -10,8 +10,9 @@ programa
 	//	exe05()
 	//	exe06()
 	//	exe07()
-		exe08()
+	//	exe08()
 	//	exe09()
+	//	exe010()
 	}
 
 	funcao exe01() {
@@ -99,7 +100,7 @@ programa
 	}
 
 	funcao exe07() {
-			inteiro num[10], num2[10]
+		inteiro num[10], num2[10]
 
 		para(inteiro i=0; i < 10; i++){
 			escreva("Insira um número: ")
@@ -123,39 +124,65 @@ programa
 	}
 	
 	funcao exe08() {
-		inteiro  num[5], par[5], impar[5], indice = 0, indice2 = 0, maiorP = 0, maiorI = 0
+		inteiro num[10], par[10], impar[10], indiceP = 0, indiceI = 0, aux = 0
+		logico veri
 
-		para(inteiro i=0; i < 5; i++){
-			escreva("Insira um número: ")
+		para(inteiro i=0; i < 10; i++){
+			escreva("\nInsira um número: ")
 			leia(num[i])
 
-			se(num[i]%2 == 0) {
-				par[indice] = num[i]
-				se(par[indice] > maiorP) {
-					maiorP = i
-				}
-				indice++
+			//Função para verificar se o número é par ou ímpar
+			veri = parouimpa(num[i])
+
+			//Faz a validação para separar os pares dos ímpares
+			se(veri == verdadeiro){
+				par[indiceP] = num[i]
+				indiceP++
 			}senao{
-				impar[indice2] = num[i]
-				se(par[indice] > maiorI) {
-					maiorI = impar[i]
+				impar[indiceI] = num[i]
+				indiceI++
+			}
+		}	
+
+		veri = verdadeiro
+
+		// É um loop para ser repetido até que os maiores valores estejam no final no caso do par, e no começo no
+		//caso do ímpar
+		enquanto(veri == verdadeiro){
+			veri = falso
+			//Faz a organização crescente dos números pares
+			para(inteiro i=0; i < 10 - 1; i++){
+				se(par[i] > par[i+1]){
+					aux = par[i]
+					par[i] = par[i+1]
+					par[i+1] = aux
+					veri = verdadeiro
 				}
-				indice2++
+			}
+
+			//Faz a organização decrescente dos números ímpares
+			para(inteiro i=0; i < 10 - 1; i++){
+				se(impar[i] < impar[i+1]){
+					aux = impar[i]
+					impar[i] = impar[i+1]
+					impar[i+1] = aux
+					veri = verdadeiro
+				}
 			}
 		}
 
-		escreva("\n",par[maiorP])
-		para(inteiro i=0; i < 5; i++){
-			par[maiorP] = 0
-			
-			se(par[indice] > maiorP) {
-				maiorP = i
-				escreva("\n",par[maiorP])
+		para(inteiro i=0; i < 10; i++){
+			se(par[i] != 0){
+				escreva("\nNúmeros Pares: ",par[i])
 			}
 		}
+
+		escreva("\n\n")
 		
-		para(inteiro i=0; i < 5; i++){
-				escreva("\n",par[i])
+		para(inteiro i=0; i < 10; i++){
+			se(impar[i] != 0){
+				escreva("\nNúmeros Ímpares: ",impar[i])
+			}
 		}
 	}
 
@@ -183,6 +210,43 @@ programa
 		}
 	}
 
+	funcao exe010() {
+		inteiro vettorBig[20], vettor1[10], vettor2[10], indice = 0
+
+		para(inteiro i=0; i < 20; i++){
+			escreva("\nInsira um número: ")
+			leia(vettorBig[i])
+
+			// Verifica se o último índice está vago, caso não esteja, continuará o preenchendo, se já estiver
+			//começará a preencher o vettor2
+			se(vettor1[9] == 0){
+				vettor1[i] = vettorBig[i]
+			}senao{
+				vettor2[indice] = vettorBig[i]
+				indice++
+			}
+		}
+
+		para(inteiro i=0; i < 10; i++){
+			escreva("\nPrimeiro Vettor: ",vettor1[i])
+		}
+
+		escreva("\n\n")
+
+		para(inteiro i=0; i < 10; i++){
+			escreva("\nSegundo Vettor: ",vettor2[i])
+		}
+	}
+
+	funcao logico parouimpa(inteiro x) {
+		logico par = verdadeiro
+		
+		se(x%2 != 0){
+			par = falso
+		}
+		
+		retorne par
+	}
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -190,8 +254,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3022; 
- * @DOBRAMENTO-CODIGO = [16, 32, 43, 54, 67, 85, 100, 124];
+ * @POSICAO-CURSOR = 144; 
+ * @DOBRAMENTO-CODIGO = [17, 33, 44, 55, 68, 86, 101, 125, 188, 212, 240];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
