@@ -1,0 +1,10 @@
+.abertura{
+  height: 500px;
+  background-image: url(../img/jackson-gravidade.jpeg);
+  text-align: center;
+}
+
+.text{
+  color: #fff;
+  font-size: 4rem;
+}
