@@ -1,0 +1,30 @@
+.abertura{
+  display: flex;
+  height: 500px;
+  background-image: url(../img/jackson-gravidade.jpeg);
+  justify-content: center;
+  align-items: center;
+}
+  
+.texto-destaque{
+  color: #f0f;
+  font-size: 6rem;
+  font-family: 'Koulen', cursive;
+}
+
+.texto{
+  font-size: 3rem;
+  font-family: 'Raleway', sans-serif;
+  padding: 20px;
+}
+
+.container{
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+}
+
+.img-mj{
+  width: 40%;
+}
