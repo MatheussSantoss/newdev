@@ -1,0 +1,68 @@
+:root{
+  font-family: 'Jura', sans-serif;
+}
+
+.title-box{
+  margin: 0 auto;
+  text-align: center;
+  width: 447px;
+  height: 629px;
+  border: 1px solid #0720FD;
+  box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+}
+
+.title-text{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.main-content{
+  width: 361px;
+  height: 284px;
+  margin: 0 auto;
+}
+
+.text-main{ 
+  margin: 3rem 0 3rem 0;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px; 
+}
+
+.btn-container{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.text-sec{
+  font-size: 0.8rem;
+  line-height: 0.5px; 
+}
+
+.btn{
+  width: 170px;
+  height: 50px;
+  font-family: 'Jura', sans-serif;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+  border-radius: 80px;
+  border: none;
+  margin: 3rem 0.5rem 0 0.5rem;
+}
+
+.cancel{
+  background-color: #8D0000;
+}
+
+.confirm{
+  background-color: #00856F;
+}
+
+.text-end{
+  text-transform: uppercase;
+  margin: 3rem 0 0 0;
+}
