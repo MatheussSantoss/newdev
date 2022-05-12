@@ -1,0 +1,31 @@
+body{
+    background-color: #ffb15c;
+}
+
+.container{
+    background: linear-gradient(#0164a0,#ffb15c);
+    background-repeat: no-repeat;
+}
+
+.container-img{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.container-audio{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.img-kalli{
+    width: 35%;
+    margin: 30px 0 5px;
+    border-radius: 10px;
+}
+
+.audio-msc{
+    width: 35%;
+    border-radius: 10px;
+}
