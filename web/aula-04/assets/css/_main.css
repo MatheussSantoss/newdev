@@ -1,0 +1,16 @@
+.main{
+  background-color: var(--color2);
+  padding: 2.5rem 1rem 1rem 1rem;
+  font-family: var(--font-main);
+}
+
+.main-title{
+  color: var(--color-title);
+  font-size: 2rem;
+}
+
+.main-txt{
+  text-align: justify;
+  color: var(--color-txt);
+  margin: 2rem 0 1rem 0;
+}

@@ -66,3 +66,10 @@
   text-transform: uppercase;
   margin: 3rem 0 0 0;
 }
+
+.btn:hover{
+  cursor: pointer;
+  width: 173px;
+  height: 53px;
+  transition: 0.2s;
+}
