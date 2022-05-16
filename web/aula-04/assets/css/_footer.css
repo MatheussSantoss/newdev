@@ -1,0 +1,17 @@
+.footer{
+  background-color: var(--color1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+}
+
+.footer-txt{
+  font-family: var(--font-main);
+  color: var(--color2);
+  padding-left: 1rem;
+}
+
+.footer-icons{
+  padding-right: 1rem;
+}

@@ -6,11 +6,50 @@
 
 .main-title{
   color: var(--color-title);
+  font-weight: bold;
   font-size: 2rem;
+  margin: 1rem 0 1rem 0;
 }
 
 .main-txt{
   text-align: justify;
   color: var(--color-txt);
   margin: 2rem 0 1rem 0;
+  text-align: justify;
+}
+
+.pad{
+  margin: 0 1rem 0 1rem;
+}
+
+.main-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 22rem;
+  height: 24rem;
+  text-align: justify;
+  padding: 1rem;
+}
+
+.main-card-img{
+  width: 20rem;
+  height: 18rem;
+  background-color: var(--color-div);  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-img{
+  width: 8rem;
+  height: 8rem;
+  padding: 2.8rem 3.25rem;
 }
