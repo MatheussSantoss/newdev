@@ -1,0 +1,57 @@
+:root{
+  font-family: 'Lato', sans-serif;
+}
+
+/* Style para o Header*/
+
+.header{
+  height: 8rem;
+  background-color: #001d4c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-img{
+  padding: 1rem;
+  height: 8rem;
+}
+
+.header-txt{
+  color: #fff;
+  font-size: 1.75rem;
+  text-transform: uppercase;
+}
+
+/* Style para o Main*/
+
+.main{
+  padding: 2rem;
+}
+
+.main-txt{
+  font-size: 1.5rem;
+  text-align: justify;
+  display: inline;
+}
+
+.main-card{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card{
+  margin-top: 1.5rem;
+  width: 10rem;
+  height: 10rem;
+}
+
+.main-vector{
+  width: 10rem;
+  height: 10rem;
+}
+
+.vector-txt{
+  font-size: 1.1rem;
+  text-align: justify;
+}
