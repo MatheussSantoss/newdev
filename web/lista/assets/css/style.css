@@ -1,0 +1,29 @@
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+.header, .main, .footer {
+  width: 80%;
+  border: 1px solid red;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.list{
+  display: flex;
+  align-items: center;
+}
+
+.list-item{
+  margin-right: 1rem;
+}
