@@ -1,3 +1,10 @@
+body{
+  background-image: url(https://wallpaperaccess.com/full/783289.jpg);
+  object-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 a{
   text-decoration: none;
   color: #000;
@@ -5,8 +12,8 @@ a{
 
 .header, .main, .footer {
   width: 80%;
-  border: 1px solid #2CD17C;
   margin: 0 auto;
+  background-color: #fdfdfd;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
@@ -21,6 +28,10 @@ a{
   padding-inline: 5rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+h2{
+  font-size: 1.5rem;
 }
 
 .list{
@@ -54,13 +65,20 @@ a{
 
 .main-txt{
   text-align: justify;
-  padding: 1rem 0;
-  color: #2CD17C;
+  padding: 1rem 0 2rem 0;
 }
 
 .main-img{
   width: 30rem;
   padding: 1rem ;
+}
+
+h3{
+  font-weight: bold;
+}
+
+.ul-filter-item{
+  padding-top: 0.5rem;
 }
 
 .container-btn{
@@ -80,6 +98,11 @@ a{
   font-weight: 700;
 }
 
+.btn:hover{
+  background-color: #0C9178;
+  cursor: pointer;
+}
+
 .footer{
   display: flex;
   justify-content: space-between;
@@ -89,4 +112,14 @@ a{
 
 .midia{
   padding-right: 0.5rem;
+  color: #2CD17C;
+}
+
+.midia:hover{
+  color: #0C9178;
+  cursor: pointer;
+}
+
+.fa-instagram:hover{
+
 }
