@@ -10,12 +10,17 @@ a{
   color: #000;
 }
 
-.header, .main, .footer {
+header, main, footer {
   width: 80%;
   margin: 0 auto;
   background-color: #fdfdfd;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .main-green{
@@ -120,6 +125,70 @@ h3{
   cursor: pointer;
 }
 
-.fa-instagram:hover{
+/*  SOBRE NÓS */
 
+.main-about{
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.main-about p{
+  line-height: 2rem;
+  text-align: justify;
+  margin-top: 2rem;
+}
+
+table{
+  margin-top: 5rem;
+}
+
+table thead{
+  text-align: left;
+  font-weight: bold;
+}
+
+tr{
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid #2CD17C;
+  padding: 1rem;
+}
+
+/* CONTATO */
+.black{
+  background-color: rgb(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  display: flex ;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: centr;
+}
+
+.container-img{
+  background-image: url(../img/forest.jpg);
+  width: 50%;
+  height: 45rem;
+  background-size: cover;
+}
+
+.img-txt{
+  color: #2CD17C;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.container-txt{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sec-txt{
+  color: #2CD17C;
 }
