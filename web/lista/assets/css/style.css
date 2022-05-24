@@ -158,6 +158,10 @@ th, td {
 }
 
 /* CONTATO */
+.main-section{
+  display: flex;
+}
+
 .black{
   background-color: rgb(0, 0, 0, 0.5);
   height: 100%;
@@ -187,8 +191,48 @@ th, td {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 1rem;
 }
 
 .sec-txt{
   color: #2CD17C;
+}
+
+.main-title{
+  margin: 0rem 1rem 2rem 1rem;
+}
+
+.container-form{
+  width: 50%;
+  margin: auto auto;
+}
+
+.form-title{
+  font-size: 2rem;
+  text-align: center;
+}
+
+form{
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  margin: 1rem 0 0.2rem 0;
+}
+
+input{
+  padding: 0.4rem;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.container-form h1{
+  margin-top: 3rem;
+}
+
+.btn-form{
+  margin: 3rem auto;
 }
