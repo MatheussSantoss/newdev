@@ -15,6 +15,9 @@
 
 // Funções devem seguir as mesmas convenções e devem ter valor semântico
 
+// Por convenção, é possível declarar CONSTANTES e possuem
+// escopo global em maísculo, somente nesses casos
+
 /*            Exemplos            */
 
 let username = 'Gordola';
@@ -36,10 +39,11 @@ function subtraiValores(){
 subtraiValores();
 
 // 3° Forma de criar uma função,
-const carro = 'Porsche';
+const carro = {
+  cor: 'vermelho',
+  andar: function (){
+    console.log('andando')
+  }
+}
 
-// Por convenção, é possível declarar CONSTANTES e possuem
-// escopo global em maísculo, somente nesses casos
-const NUMERO = 2;
-
-console.log(carro)
+carro.andar();
