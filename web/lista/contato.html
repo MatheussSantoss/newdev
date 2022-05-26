@@ -7,7 +7,6 @@
   <title>Contato</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/main.js"></script>
   <script src="https://kit.fontawesome.com/74db4fc3d9.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +25,7 @@
   </header>
 
   <main class="main-contact">
-      <h1 class="main-title">Nos Contacte</h1>
+      <h1 id="texto-gene" class="main-title">Nos Contacte</h1>
 
       <section class="main-section">
         <section class="container-img">
@@ -47,7 +46,7 @@
         </section>
 
         <section class="container-form">
-          <form>
+          <form id="form-container">
             <h1 class="form-title">Nos envie uma mensagem</h1>
             <label for="name">
               Nome
@@ -64,7 +63,7 @@
             </label>
             <input required id="mensagem" type="text" placeholder="Deixe suas opniões">
 
-            <button type="submit" class="btn btn-form">Enviar</button>
+            <button type="submit" id="buttonSendMessage" class="btn btn-form">Enviar</button>
           </form>
         </section>
       </section>
@@ -83,5 +82,8 @@
       <i class="fa-solid fa-circle-arrow-up fa-3x midia"></i>
     </a>
  </footer>
+
+ <script src="assets/js/main.js"></script>
 </body>
 </html>
+
