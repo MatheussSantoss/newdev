@@ -14,9 +14,17 @@ function addMessage(event){
     message: inputMessageValue
   }
 
-  messages.push(message);
+  if(messages.length < 3){
+    // push = método de um array, adiciona um elemento no final do array
+    messages.push(message);
+  } else{
+    alert('Para de encher o meu sistema seu cringe');
+  }
+
+  // Pegamos o formulário e utilizamos um método de form que é o reset
   console.log('Imprimir Array ',message);
   document.getElementById('form-container').reset();
 }
 
 buttonSendMessage.addEventListener('click', addMessage)
+

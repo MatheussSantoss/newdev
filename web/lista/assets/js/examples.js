@@ -1,6 +1,9 @@
 // POO: Programação Orientada a Objetos
 // Atributos e Métodos (funções)
 
+// O atributo "document" é uma instância/objeto da página HTML  
+// Objetos são instâncias de uma classe
+
 // Exemplos de Atributos: Cor, Altura, Largura...
 // Exemplos de Métodos/Funções: Freiar, Acelerar, virarADireita
 
@@ -91,3 +94,36 @@ p.inputHTML = 'Chuva';
 console.log('p -> ', p);
 
 document.getElementById('texto-gene').appendChild(p);
+
+//          Classes         \\
+
+// Uma forma de identificar uma classe é pela letra maíscula no início
+function Carro(cor, marca, modelo, ano){
+  return{
+    cor,
+    marca,
+    modelo,
+    ano
+  }
+}
+
+// Instâncias/Objetos, pois derivam da classe
+const carro1 = Carro('vermelho', 'volks', 'gol', 2010);
+const carro2 = Carro('amarelo', 'volks', 'gol', 2020);
+const carro3 = Carro('verde', 'volks', 'bola', 2021);
+const carro4 = Carro('azul', 'volks', 'saveiro', 2010);
+
+console.log(carro1);
+console.log(carro2);
+console.log(carro3);
+console.log(carro4);
+
+function Pessoa(nome, sobrenome, idade){
+  return{
+    nome, sobrenome, idade
+  }
+}
+
+const pessoa1 = Pessoa('Matheus','Da ZN', 18);
+
+console.log(pessoa1);
