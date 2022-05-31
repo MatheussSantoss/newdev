@@ -1,5 +1,11 @@
 const buttonAddMessage = document.getElementById('add-button');
 
+let countRow = 0;
+
+const onClickEdit = (idRecord) => {
+  console.log('onClickEdit', idRecord);
+}
+
 function addMsg(event) {
   event.preventDefault();
   const inputFrom = document.getElementById('from');
@@ -53,6 +59,41 @@ function addMsg(event) {
   // Coloca um "li" dentro da "ul"
   ul.appendChild(li);
 
+  const tdFrom = document.createElement('td');
+  const tdTo = document.createElement('td');
+  const tdMessage = document.createElement('td')
+
+  const tr = document.createElement('tr');
+  const tbody = document.querySelector('tbody');
+
+  tdFrom.innerHTML = `${message.from}`;
+  tdTo.innerHTML = `${message.to}`;
+  tdMessage.innerHTML = `${message.message}`;
+  
+  tr.appendChild(tdFrom);
+  tr.appendChild(tdTo);
+  tr.appendChild(tdMessage);
+
+  const tdButtons = document.createElement('td');
+
+  const iconEdit = document.createElement('i');
+  iconEdit.setAttribute('class', 'fa-solid fa-pencil icon-table');
+  iconEdit.setAttribute('style', 'cursor: pointer');
+  tdButtons.appendChild(iconEdit);
+  
+  const iconRemove = document.createElement('i');
+  iconRemove.setAttribute('class', 'fa-solid fa-trash icon-table');
+  iconRemove.setAttribute('style', 'cursor: pointer');
+  tdButtons.appendChild(iconRemove);
+  
+  tr.appendChild(tdButtons);
+  
+  tr.setAttribute('id', countRow);
+  countRow += 1;
+  tbody.appendChild(tr);
+  
+  iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentNode.id});`);
+  
   document.getElementById('form-message').reset();
 }
 
