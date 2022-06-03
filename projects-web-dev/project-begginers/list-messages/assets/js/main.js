@@ -2,8 +2,83 @@ const buttonAddMessage = document.getElementById('add-button');
 
 let countRow = 0;
 
-const onClickEdit = (idRecord) => {
-  console.log('onClickEdit', idRecord);
+let editId = '';
+let editCheck = false;
+
+const onClickEdit = (lineEditing) => {
+  // forEach é o método que PERCORRE todos os elementos de um array
+  // lineEditing.childNodes.forEach((valor, index) => {
+  //   console.log(valor);
+  //   console.log(index);
+  // });
+
+  // const fromValue = lineEditing.childNodes[0].innerHTML;
+  // const toValue = lineEditing.childNodes[1].innerHTML;
+  // const messageValue = lineEditing.childNodes[2].innerHTML;
+
+  // Desestruturação de arrays
+  const [from, to, message] = lineEditing.childNodes;
+
+  console.log(from.innerHTML);
+  console.log(to.innerHTML);
+  console.log(message.innerHTML);
+
+  document.getElementById('from').value = from.innerHTML;
+  document.getElementById('to').value = to.innerHTML;
+  document.getElementById('message').innerHTML = message.innerHTML;
+
+  const tbody = document.getElementById('table-body');
+
+  editId = lineEditing.id;
+  editCheck = true;
+}
+
+const onClickRemove = (lineEditing) => {
+  lineEditing.remove();
+}
+
+function onClickMoveDown(row) {
+  const nodes = document.getElementById('table-body').childNodes;
+
+  nodes.forEach((rowItem, index) => {
+    if (rowItem?.id === row.id) {
+      indexRow = index - 1;
+    }
+  });
+        
+  moveLine('down');
+}
+
+function onClickMoveUp(row) {
+  const nodes = document.getElementById('table-body').childNodes;
+
+  nodes.forEach((rowItem, index) => {
+    if (rowItem?.id === row.id) {
+      indexRow = index - 1;
+    }
+  });
+        
+  moveLine('up');
+}
+
+function moveLine(direction) {
+  const rows = document.getElementById('table-body').rows;
+  const parent = rows[indexRow].parentNode;
+
+  if (direction === 'up') {
+    if (indexRow >= 1) {
+      parent.insertBefore(rows[indexRow],rows[indexRow - 1]);
+
+      indexRow--;
+    }
+  }
+
+  if (direction === 'down'){
+    if(indexRow < rows.length -1){
+      parent.insertBefore(rows[indexRow + 1],rows[indexRow]);
+      indexRow++;
+    }
+  }
 }
 
 function addMsg(event) {
@@ -66,33 +141,56 @@ function addMsg(event) {
   const tr = document.createElement('tr');
   const tbody = document.querySelector('tbody');
 
-  tdFrom.innerHTML = `${message.from}`;
-  tdTo.innerHTML = `${message.to}`;
-  tdMessage.innerHTML = `${message.message}`;
-  
-  tr.appendChild(tdFrom);
-  tr.appendChild(tdTo);
-  tr.appendChild(tdMessage);
-
   const tdButtons = document.createElement('td');
 
   const iconEdit = document.createElement('i');
-  iconEdit.setAttribute('class', 'fa-solid fa-pencil icon-table');
-  iconEdit.setAttribute('style', 'cursor: pointer');
+  iconEdit.setAttribute('title', 'Editar');
+  iconEdit.setAttribute('class', 'fa-solid fa-pencil');
+  iconEdit.setAttribute('style', 'cursor: pointer; margin-inline: 0.5rem');
   tdButtons.appendChild(iconEdit);
   
   const iconRemove = document.createElement('i');
-  iconRemove.setAttribute('class', 'fa-solid fa-trash icon-table');
-  iconRemove.setAttribute('style', 'cursor: pointer');
+  iconRemove.setAttribute('title', 'Remover');
+  iconRemove.setAttribute('class', 'fa-solid fa-trash');
+  iconRemove.setAttribute('style', 'cursor: pointer; margin-inline: 0.5rem');
   tdButtons.appendChild(iconRemove);
-  
-  tr.appendChild(tdButtons);
-  
-  tr.setAttribute('id', countRow);
-  countRow += 1;
-  tbody.appendChild(tr);
-  
-  iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentNode.id});`);
+
+  const iconArrowDown = document.createElement('i');
+  iconArrowDown.setAttribute('title', 'Descer posição');
+  iconArrowDown.setAttribute('class', 'fa-solid fa-arrow-down');
+  iconArrowDown.setAttribute('style', 'cursor: pointer; margin-inline: 0.5rem');
+  tdButtons.appendChild(iconArrowDown);
+
+  const iconArrowUp = document.createElement('i');
+  iconArrowUp.setAttribute('title', 'Subir posição');
+  iconArrowUp.setAttribute('class', 'fa-solid fa-arrow-up');
+  iconArrowUp.setAttribute('style', 'cursor: pointer; margin-inline: 0.5rem');
+  tdButtons.appendChild(iconArrowUp);
+  if (editCheck) {
+    const trEdit = document.getElementById(editId);
+
+    trEdit.children[0].innerHTML = message.from;
+    trEdit.children[1].innerHTML = message.to;
+    trEdit.children[2].innerHTML = message.message
+  }else{
+    tdFrom.innerHTML = `${message.from}`;
+    tdTo.innerHTML = `${message.to}`;
+    tdMessage.innerHTML = `${message.message}`;
+    
+    tr.appendChild(tdFrom);
+    tr.appendChild(tdTo);
+    tr.appendChild(tdMessage);
+
+    tr.appendChild(tdButtons);
+    tr.setAttribute('id', `line${countRow}`);
+    countRow += 1;
+    tbody.appendChild(tr);
+
+    iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentNode.id});`);
+    iconRemove.setAttribute('onclick', `onClickRemove(${tdButtons.parentNode.id});`);
+    iconArrowDown.setAttribute('onclick', `onClickMoveDown(${tdButtons.parentNode.id});`);
+    iconArrowUp.setAttribute('onclick', `onClickMoveUp(${tdButtons.parentNode.id});`);
+  }
   
   document.getElementById('form-message').reset();
 }
