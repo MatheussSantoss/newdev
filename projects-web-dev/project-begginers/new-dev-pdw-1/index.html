@@ -6,33 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>PDW 1</title>
+  <title>Registrar-se</title>
 </head>
 <body>
   <main>
-      <form class="main-form">
-        
-        <label for="name" id="name">Nome</label>
-        <input type="text">
+      <form action="#" class="main-content">
+        <h1>Registrar-se</h1>
 
-        <label for="surname" id="surname">Sobrenome</label>
-        <input type="text">
+        <label for="name">Nome</label>
+        <input autocomplete="off" type="text"  id="name" name="name" placeholder="João" required/>
 
-        <label for="address" id="address">Endereço</label>
-        <input type="text">
+        <label for="surname">Sobrenome</label>
+        <input autocomplete="off" type="text" id="surname" name="surname" placeholder="Elias Machado" required />
 
-        <label for="aux-address" id="aux-address">Complemento</label>
-        <input type="text">
+        <label for="address">Endereço</label>
+        <input autocomplete="off" type="text" id="address" name="address" placeholder="Ex: Rua Exemplo, 265" required />
 
-        <label for="cell" id="cell">N° de celular</label>
-        <input type="text">
+        <label for="aux-address">Complemento</label>
+        <input autocomplete="off" type="text" id="aux-address" name="aux-address" placeholder="Ex: Casa, apartamento..." required />
 
-        <label for="email" id="email">E-mail</label>
-        <input type="text">
+        <label for="cell">N° de celular</label>
+        <input autocomplete="off" type="tel" id="cell" name="cell" placeholder="(XX)XXXX-XXXX" required />
 
-        <button type="button" id="btn-submit">Criar Conta</button>
+        <label for="email">E-mail</label>
+        <input autocomplete="off" type="email" id="email" name="email" placeholder="seunome@examplo.com" required />
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div id="modalDiv">
+              <table>
+                <thead>
+                  <th>Nome</th>
+                  <th>Sobrenome</th>
+                  <th>Endereço</th>
+                  <th>Complemento</th>
+                  <th>N° de celular</th>
+                  <th>E-mail</th>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
+          </div>
+        </div>
+        <p id="anchor-txt">Verifique seu histórico e registro atual</p>
+
+        <button type="submit" id="btn-submit">Criar Conta</button>
       </form>
   </main>
+  <script src="https://kit.fontawesome.com/74db4fc3d9.js" crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
