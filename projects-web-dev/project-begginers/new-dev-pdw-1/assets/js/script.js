@@ -1,10 +1,19 @@
 const modal = document.getElementById('myModal');
 let userInfo = [];
 
+window.onload = () => {
+  let userKey = localStorage.getItem('UserInfo')
+  userInfo = userKey ? JSON.parse(userKey) : [];
+
+  if (localStorage.getItem('UserInfo'))  {
+    document.getElementById('anchor-txt').style.display = "flex";
+  }
+}
+
 document.getElementById('btn-submit').addEventListener('click',(event) => {
   event.preventDefault();
 
-  let userKey = localStorage.getItem('UserInfo ')
+  let userKey = localStorage.getItem('UserInfo');
   userInfo = userKey ? JSON.parse(userKey) : [];
 
   // Objeto que contém as informações do usuário
@@ -17,27 +26,44 @@ document.getElementById('btn-submit').addEventListener('click',(event) => {
     email: document.getElementById('email').value
   });
 
-  localStorage.setItem('UserInfo ', JSON.stringify(userInfo));
+  localStorage.setItem('UserInfo', JSON.stringify(userInfo));
 
   document.querySelector('form').reset();
 
-  if (localStorage.length != 0)  {
-    // Quando o usuário efetuar seu registro, irá aparecer a opção de verificar seu registro
-    document.getElementById('anchor-txt').style.display = "flex";
-  }
+  const userItensObj = JSON.parse(localStorage.getItem('UserInfo'));
+
+  addTable(userItensObj);
+  document.getElementById('anchor-txt').style.display = "flex";
 });
 
   // Exibe um Modal de seu registro
   document.getElementById('anchor-txt').onclick = () => {
-    if (localStorage.length != 0)  {
-      // Quando o usuário efetuar seu registro, irá aparecer a opção de verificar seu registro
-      document.getElementById('anchor-txt').style.display = "flex";
-    }
-    
     modal.style.display = "block";
-    userInfo.forEach(item => {
-          
-      const tbody = document.querySelector('tbody');
+    const userItensObj = JSON.parse(localStorage.getItem('UserInfo'));
+    addTable(userItensObj);
+  };
+
+  // Verificação para caso o usuário clique fora da tela, feche o modal 
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  // Verificação para quando o usuário clicar no icon do "X", feche o modal 
+  document.getElementById('iconRemove').onclick = function() {
+    modal.style.display = "none";
+  };
+
+  function addTable(storage) {
+    const table = document.querySelector('table');
+    let tbody = document.querySelector('tbody');
+    if (tbody) {
+    tbody.remove(); 
+    };
+    tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+    storage.forEach(item => {
       const tr = document.createElement('tr');
       const tdName = document.createElement('td');
       const tdSurname = document.createElement('td');
@@ -52,30 +78,13 @@ document.getElementById('btn-submit').addEventListener('click',(event) => {
       tdAuxAddres.innerHTML = `${item.auxAddress}`;
       tdCell.innerHTML = `${item.cell}`
       tdEmail.innerHTML = `${item.email}`;
-
+      
       tr.appendChild(tdName);
       tr.appendChild(tdSurname);
       tr.appendChild(tdAddress);
       tr.appendChild(tdAuxAddres);
       tr.appendChild(tdCell);
       tr.appendChild(tdEmail);
-      if (userInfo[0] == tr) {
-        tbody.appendChild(tr);
-      }
-    }
-  )};
-
-  // Verificação para caso o usuário clique fora da tela, feche o modal 
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-
-  // Verificação para quando o usuário clicar no icon do "X", feche o modal 
-  document.getElementById('iconRemove').onclick = function() {
-    modal.style.display = "none";
-    for (let i = 0; i < userInfo.length; i++) {
-      document.querySelector(tbody).clear();
-    }
-  };
+      tbody.appendChild(tr);
+    })
+  }
