@@ -1,5 +1,6 @@
 const modal = document.getElementById('myModal');
 let userInfo = [];
+let trId = 0;
 
 window.onload = () => {
   let userKey = localStorage.getItem('UserInfo')
@@ -55,6 +56,22 @@ document.getElementById('btn-submit').addEventListener('click',(event) => {
     modal.style.display = "none";
   };
 
+  function addIcon(tdButtons) {
+    const iconEdit = document.createElement('i');
+    iconEdit.setAttribute('title', 'Editar');
+    iconEdit.setAttribute('class', 'fa-solid fa-pencil');
+    iconEdit.setAttribute('style', 'cursor: pointer; margin-inline: 0.5rem');
+    iconEdit.setAttribute('onclick', `onClickEdit(event)`);
+    tdButtons.appendChild(iconEdit);
+    
+    const iconRemove = document.createElement('i');
+    iconRemove.setAttribute('title', 'Remover');
+    iconRemove.setAttribute('class', 'fa-solid fa-trash');
+    iconRemove.setAttribute('style', 'cursor: pointer; margin-inline: 0.5rem');
+    iconRemove.setAttribute('onclick', `onClickRemove(event)`);
+    tdButtons.appendChild(iconRemove);
+  }
+
   function addTable(storage) {
     const table = document.querySelector('table');
     let tbody = document.querySelector('tbody');
@@ -65,6 +82,7 @@ document.getElementById('btn-submit').addEventListener('click',(event) => {
     table.appendChild(tbody);
     storage.forEach(item => {
       const tr = document.createElement('tr');
+      const tdButtons = document.createElement('td');
       const tdName = document.createElement('td');
       const tdSurname = document.createElement('td');
       const tdAddress = document.createElement('td');
@@ -78,6 +96,7 @@ document.getElementById('btn-submit').addEventListener('click',(event) => {
       tdAuxAddres.innerHTML = `${item.auxAddress}`;
       tdCell.innerHTML = `${item.cell}`
       tdEmail.innerHTML = `${item.email}`;
+      addIcon(tdButtons);
       
       tr.appendChild(tdName);
       tr.appendChild(tdSurname);
@@ -85,6 +104,18 @@ document.getElementById('btn-submit').addEventListener('click',(event) => {
       tr.appendChild(tdAuxAddres);
       tr.appendChild(tdCell);
       tr.appendChild(tdEmail);
+      tr.appendChild(tdButtons);
+      tr.setAttribute('id', `${trId}`);
+      trId++;
       tbody.appendChild(tr);
     })
   }
+
+  function onClickEdit(event){
+    
+  };
+
+  const onClickRemove = () => {
+
+  };
+ 
