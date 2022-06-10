@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* #fb9f8b - salmao
+#077b88 - azul principal
+#e2ccc6 - neutre */
+
+body{
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.body-form{
+  background-color: #d3d3d3;
+}
+
+.header-form{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fdfdfd; 
+}
+
+.header-logo{
+  display: flex;
+  height: 20vh;
+}
+
+.txt-container{
+  display: flex;
+}
+
+.txt-container p{
+  margin: .5rem;
+  font-size: 1.2rem;
+}
+
+.logo-img{
+  height: 100%;
+}
+
+.title{
+  margin: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.main-form{
+  background-color: #d3d3d3;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.container-form{
+  margin: 0 auto;
+  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 40%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px #000;
+}
+
+input{
+  margin: .2rem 0 1rem 0;
+  padding: .5rem;
+}
+
+#btnSubmitCar{
+  border: none;
+  border-radius: 3px;
+  margin: 1.5rem;
+  padding: .7rem;
+  background-color: #303D52;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: 0.1s;
+}
+
+#btnSubmitCar:hover{
+  cursor: pointer;
+  background-color: #3a5175;
+  transition: 0.1s;
+}
+
+.footer-form{
+  background-color: #303D52;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+}
+
+.footer-form p{
+  color: #fff;
+  margin-left: 1rem;
+}
