@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Mobi Auto | Cadastro</title>
+  <title>Mobi Auto | Estoque</title>
 </head>
-<body class="body-form">
+<body>
   <header class="header-form">
     <div class="header-logo">
       <img class="logo-img" src="./assets/img/logo-auto.png" alt="Logo da empresa 'MobiAuto'">
@@ -19,22 +19,28 @@
       <p><a href="./storage.html">Estoque</a></p>
     </div>
   </header>
-  <main class="main-form">
-    <div class="title-container">
-      <h1 class="title">Cadastre o veículo</h1>
+  <main>
+    <table>
+      <thead>
+        <th>Modelo</th>
+        <th>Marca</th>
+        <th>Ano</th>
+        <th>Estoque</th>
+        <th>Ações</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div id="modalDiv">
+        </div>
+        <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
+      </div>
     </div>
-    <form class="container-form">
-      <label for="model">Modelo</label>
-      <input type="text" id="carModel" placeholder="Insira o modelo do veículo">
-      <label for="brand">Marca</label>
-      <input type="text" id="carBrand" placeholder="Insira o marca do veículo">
-      <label for="year">Ano</label>
-      <input type="number" id="carYear" placeholder="Insira o ano do veículo">
-
-      <button id="btnSubmitCar" type="submit">Cadastrar</button>
-    </form>
   </main>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script-storage.js"></script>
   <script src="https://kit.fontawesome.com/74db4fc3d9.js" crossorigin="anonymous"></script>
 </body>
 </html>
