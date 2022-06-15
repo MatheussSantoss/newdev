@@ -31,13 +31,35 @@
       <tbody>
       </tbody>
     </table>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <div id="modalDiv">
-        </div>
-        <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
-      </div>
+    <div class="storage-container">
+      <p>Temos um total de </p>
+      <span id="storageSpan"></span>
+      <p>em estoque</p>
     </div>
+    <section id="myModal" class="modal">
+      <div id="modalContent" class="modal-content">
+        <div action="#" id="modalDiv">
+        </div>
+        <form action="">
+          <label for="addMove">Insira a quantidade que irá ser adicionada:</label>
+          <input id="addInput" type="number">
+          <button id="addMoveBtn" type="submit">Transportar</button>
+          <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
+        </form>
+      </div>
+    </section>
+    <section id="myModal2" class="modal">
+      <div id="modalContent2" class="modal-content">
+        <div action="#" id="modalDiv2">
+        </div>
+        <form action="">
+          <label for="removeStorage">Insira a quantidade que quer remover:</label>
+          <input id="removeInput" type="number">
+          <button id="removeStorageBtn" type="submit">Remover</button>
+          <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
+        </form>
+      </div>
+    </section>
   </main>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/script-storage.js"></script>

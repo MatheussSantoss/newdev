@@ -112,6 +112,7 @@ table{
   border: 3px solid #000;
   margin: 2rem auto;
   width: 50%;
+  text-align: center;
 }
 
 th{
@@ -123,6 +124,20 @@ th, td{
   padding: .5rem;
   border: 1px solid #000;
   font-size: 1.3rem;
+}
+
+.storage-container{
+  margin: 0 auto;
+  padding-top: 1rem;
+  width: 80%;
+  text-align: center;
+  font-size: 2rem;
+  border-top: 2px solid #077b8863;
+}
+
+.storage-container span{
+  font-size: 4rem;
+  color: #077b88;
 }
 
 .modal{ 
@@ -160,3 +175,12 @@ th, td{
 .icon:hover{
   color: #077b88;
 }
+
+
+/* 
+#addInput{
+}
+
+#modalDiv{
+  display: flex;
+} */

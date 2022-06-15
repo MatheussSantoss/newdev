@@ -1,7 +1,21 @@
 let carRegistered = [];
 
+window.onload = () => {
+  let carKey = localStorage.getItem('carInfo')
+  carRegistered = carKey ? JSON.parse(carKey) : [];
+}
+
 document.getElementById('btnSubmitCar').addEventListener('click', (event) => {
   event.preventDefault();
+
+  let identifier = 0;
+    if (carRegistered.length > 0) {
+      carRegistered.forEach(car => {
+        if (car.identifier == identifier) {
+          identifier++;
+        }
+      })
+    }
 
   let carKey = localStorage.getItem('carInfo');
   carRegistered = carKey ? JSON.parse(carKey) : [];
@@ -9,7 +23,9 @@ document.getElementById('btnSubmitCar').addEventListener('click', (event) => {
   carRegistered.push({
     model: document.getElementById('carModel').value,
     brand: document.getElementById('carBrand').value,
-    year: document.getElementById('carYear').value
+    year: document.getElementById('carYear').value,
+    identifier: identifier,
+    amount: 0
   })
 
   localStorage.setItem('carInfo', JSON.stringify(carRegistered));
