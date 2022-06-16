@@ -20,6 +20,7 @@
     </div>
   </header>
   <main>
+    <input id="inputFilter" type="text">
     <table>
       <thead>
         <th>Modelo</th>
@@ -54,8 +55,10 @@
         </div>
         <form action="">
           <label for="removeStorage">Insira a quantidade que quer remover:</label>
-          <input id="removeInput" type="number">
-          <button id="removeStorageBtn" type="submit">Remover</button>
+          <div class="storage-form">
+            <input id="removeInput" type="number">
+            <button id="removeStorageBtn" type="submit">Remover</button>
+          </div>
           <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
         </form>
       </div>

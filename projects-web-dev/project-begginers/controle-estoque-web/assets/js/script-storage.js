@@ -1,8 +1,8 @@
 const carItensObj = JSON.parse(localStorage.getItem('carInfo'));
+const inputFilter = document.getElementById('inputFilter');
 const modal = document.getElementById('myModal');
 const modal2 = document.getElementById('myModal2');
 const limit = 200;
-let carAmount = 0;
 let storage = 0;
 
 function addIcon(tdButtons, id) {
@@ -144,8 +144,7 @@ function onClickRemoveStorage(event, element, identifier) {
         }
       }
     });
-    localStorage.setItem('carInfo', JSON.stringify(carItensObj));
-    
+    localStorage.setItem('carInfo', JSON.stringify(carItensObj)); 
 
     document.querySelector('form').reset();
     modal2.style.display = "none";
@@ -157,5 +156,13 @@ carItensObj.forEach(car => {
   storage += car.amount;
 });
 
+inputFilter.addEventListener('keyup', () => {
+
+  console.log(carItensObj.filter(car => car.model.includes(inputFilter.value)));
+})
+
 document.getElementById('storageSpan').innerHTML = storage;
 addTable();
+
+// 'paralelepipedo'.includes('txt');
+// Ele retornará se o que está dentro do parâmetro existe ou não na string

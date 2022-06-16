@@ -164,12 +164,37 @@ th, td{
   justify-content: center;
 }
 
+.storage-form{
+  display: flex;
+}
+
+.modal-content input{
+  margin: 1.5rem 0;
+}
+
+.modal-content label{
+  font-size: 1.2rem;
+}
+
+#removeStorageBtn, #addMoveBtn{
+  border: none;
+  border-radius: 5px;
+  background-color: #077b88;
+  color: #fff;
+  font-size: 1rem;
+}
+
+#removeStorageBtn:hover, #addMoveBtn:hover{
+  cursor: pointer;
+  background-color: #06646e;
+}
+
 .icon{
   font-size: 1.5rem;
   cursor: pointer;
   margin-top: 0px;
   position: absolute;
-  margin-left: 50%;
+  margin-left: 35%;
 }
 
 .icon:hover{
@@ -180,7 +205,9 @@ th, td{
 /* 
 #addInput{
 }
+*/
 
-#modalDiv{
+#myModal2 form{
   display: flex;
-} */
+  flex-direction: column;
+}
