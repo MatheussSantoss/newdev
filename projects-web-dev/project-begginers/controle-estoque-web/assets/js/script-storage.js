@@ -32,7 +32,7 @@ function addIcon(tdButtons, id) {
   tdButtons.appendChild(iconRemoveStorage);
 }
 
-function addTable(){  
+function addTable(carsArray){  
   const table = document.querySelector('table');
   let tbody = document.querySelector('tbody');
   if (tbody) {
@@ -40,7 +40,7 @@ function addTable(){
   };
   tbody = document.createElement('tbody');
   table.appendChild(tbody);
-  carItensObj.forEach((car, index) => {
+  carsArray.forEach((car, index) => {
     const tr = document.createElement('tr');
     const tdButtons = document.createElement('td');
     const tdModel = document.createElement('td');
@@ -65,17 +65,15 @@ function addTable(){
 }
 
 function onClickRemove(element) {
-  console.log(element.id);
   carItensObj.splice(element.id, 1);
   localStorage.setItem('carInfo', JSON.stringify(carItensObj));
-  addTable();
+  addTable(carItensObj);
   location.reload();
 }
 
 function onClickAddStorage(event, element, identifier){
   modal.style.display = "block";
   let trClicked = (event.target.parentNode).parentNode; 
-  console.log(trClicked);
 
   window.onclick = function(event) {
     if (event.target == modal) {
@@ -84,7 +82,7 @@ function onClickAddStorage(event, element, identifier){
   };
   
   // Verificação para quando o usuário clicar no icon do "X", feche o modal 
-  document.getElementById('iconRemove').onclick = function() {
+  document.getElementById('iconRemovePlus').onclick = function() {
     modal.style.display = "none";
   };
 
@@ -94,7 +92,7 @@ function onClickAddStorage(event, element, identifier){
     carItensObj.forEach((car,index) => {
       if (car.identifier == trClicked.id) {
         if (document.getElementById('addInput').value <= limit) {
-          if (Number(document.getElementById('addInput').value) + storage <= 200) {
+          if (Number(document.getElementById('addInput').value) + storage <= limit) {
             car.amount += Number(document.getElementById('addInput').value);
           }else{
             alert('Limite do depósito atingido! O limite é ' + limit);
@@ -124,7 +122,7 @@ function onClickRemoveStorage(event, element, identifier) {
     }
   };
   
-  document.getElementById('iconRemove').onclick = function() {
+  document.getElementById('iconRemoveMinus').onclick = function() {
     modal2.style.display = "none";
   };
 
@@ -152,17 +150,25 @@ function onClickRemoveStorage(event, element, identifier) {
   })
 }
 
-carItensObj.forEach(car => {
-  storage += car.amount;
-});
+function fillStorage() {
+  if (carItensObj !== null) {
+    carItensObj.forEach(car => {
+      storage += car.amount;
+    })
+  }else{
+    storage = 0;
+  };
+
+  document.getElementById('storageSpan').innerHTML = storage;
+}
 
 inputFilter.addEventListener('keyup', () => {
-
-  console.log(carItensObj.filter(car => car.model.includes(inputFilter.value)));
+  addTable(carItensObj.filter(car => car.model.toUpperCase().includes(inputFilter.value.toUpperCase()) || 
+  car.brand.toUpperCase().includes(inputFilter.value.toUpperCase()) || car.year.includes(inputFilter.value)));
 })
 
-document.getElementById('storageSpan').innerHTML = storage;
-addTable();
+fillStorage();
+addTable(carItensObj);
 
 // 'paralelepipedo'.includes('txt');
 // Ele retornará se o que está dentro do parâmetro existe ou não na string
