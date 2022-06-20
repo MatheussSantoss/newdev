@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,500&display=swap');
+
+body{
+  font-family: 'Mali', cursive;
+  font-size: 8rem;
+}
+
+.char-select{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 17.5%;
+  flex-direction: column;
+}
+
+.char-select p{
+  font-size: 5rem;
+  display: inline;
+}
+
+.game-container{
+  margin: 5% auto;
+  height: 27rem;
+  width: 27rem;
+  background-color: cadetblue;
+  display: flex;  
+  flex-wrap: wrap;
+}
+
+.block-area1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.block-area2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.block-area3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-bottom: 2px solid #000
+}
+
+.block-area4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.block-area5{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.block-area6{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-bottom: 2px solid #000;
+}
+
+.block-area7{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-right: 2px solid #000;
+}
+
+.block-area8{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+  border-right: 2px solid #000;
+}
+
+.block-area9{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32.8%;
+  height: 32.8%;
+}
+
+.hide{
+  display: none;
+}
