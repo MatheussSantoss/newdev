@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,16 +11,22 @@
 <body>
   <header class="header-form">
     <div class="header-logo">
-      <img class="logo-img" src="./assets/img/logo-auto.png" alt="Logo da empresa 'MobiAuto'">
+      <a href="./index.html"><img class="logo-img" src="./assets/img/logo-auto.png" alt="Logo da empresa 'MobiAuto'"></a>
     </div>
     <div class="txt-container">
-      <p>Home</p>
-      <p><a href="./index.html">Cadastrar<a/></p>
+      <p><a href="./index.html">Home</a></p>
+      <p><a href="./register.html">Cadastrar<a/></p>
       <p><a href="./storage.html">Estoque</a></p>
     </div>
   </header>
   <main>
-    <input id="inputFilter" type="text">
+    <div class="filter-container">
+      <label for="filter">Localizar:</label>
+      <div>
+        <input id="inputFilter" type="text" placeholder="Pesquisar...">
+        <button type="submit" class="btn">Buscar</button>
+      </div>
+    </div>
     <table>
       <thead>
         <th>Modelo</th>
@@ -35,17 +41,19 @@
     <div class="storage-container">
       <p>Temos um total de </p>
       <span id="storageSpan"></span>
-      <p>em estoque</p>
+      <p>veículos em estoque</p>
     </div>
     <section id="myModal" class="modal">
       <div id="modalContent" class="modal-content">
         <div action="#" id="modalDiv">
         </div>
         <form action="">
+          <i class="fa-solid fa-circle-xmark icon" id="iconRemovePlus"></i>
           <label for="addMove">Insira a quantidade que irá ser adicionada:</label>
-          <input id="addInput" type="number">
-          <button id="addMoveBtn" type="submit">Transportar</button>
-          <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
+          <div class="storage-form">
+            <input id="addInput" type="number">
+            <button class="btn" id="addMoveBtn" type="submit">Transportar</button>
+          </div>
         </form>
       </div>
     </section>
@@ -54,12 +62,12 @@
         <div action="#" id="modalDiv2">
         </div>
         <form action="">
+          <i class="fa-solid fa-circle-xmark icon" id="iconRemoveMinus"></i>
           <label for="removeStorage">Insira a quantidade que quer remover:</label>
           <div class="storage-form">
             <input id="removeInput" type="number">
-            <button id="removeStorageBtn" type="submit">Remover</button>
+            <button class="btn" id="removeStorageBtn" type="submit">Remover</button>
           </div>
-          <i class="fa-solid fa-circle-xmark icon" id="iconRemove"></i>
         </form>
       </div>
     </section>
