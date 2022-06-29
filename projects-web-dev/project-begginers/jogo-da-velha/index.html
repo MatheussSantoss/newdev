@@ -9,11 +9,11 @@
   <title>Old Woman Game</title>
 </head>
 <body>
-  <section class="char-select">
-    <p>Selecione seu ícone:</p>
+  <section id="charSelect" class="char-select">
+    <p class="char-txt">Selecione seu ícone:</p>
     <div>
-      <p>X</p>
-      <p>O</p>
+      <p class="player-icon" id="playerX">X</p>
+      <p class="player-icon" id="playerO">O</p>
     </div>
   </section>
   <section id="gameSection" class="game-container hide">
@@ -26,6 +26,19 @@
     <div class="block-area7"></div>
     <div class="block-area8"></div>
     <div class="block-area9"></div>
+  </section>
+  <section>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div id="modalDiv">
+          <p id="modalTxt"></p>
+          <div class="btn-container">
+            <!-- <button class="btn" id="btnRematch" type="reset">Reiniciar Patida</button> -->
+            <button class="btn" id="btnReset" type="reset">Voltar à seleção</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   <script src="./assets/script.js"></script>
 </body>

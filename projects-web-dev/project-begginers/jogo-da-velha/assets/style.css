@@ -1,33 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto&display=swap');
 
 body{
-  font-family: 'Mali', cursive;
+  font-family: 'Architects Daughter', cursive;
   font-size: 8rem;
+  background-image: linear-gradient(to right bottom, #ffffff, #d7d7d7, #b0b0b0, #8b8b8b, #676767);
+  height: 100vh;
 }
 
+/* Seleção de Personagem */
+
 .char-select{
+  position: absolute;
+  margin-inline: 25%;
+  padding: 1rem;
+  background-color: #fdfdfd;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 17.5%;
   flex-direction: column;
+  box-shadow: 1px 1px 4px rgb(41, 41, 41);
 }
 
-.char-select p{
+.char-txt{
+  font-family: 'Roboto', sans-serif;
+  font-size: 5rem;
+}
+
+.player-icon{
   font-size: 5rem;
   display: inline;
+  transition: 0.1s;
 }
 
+.player-icon:hover{
+  color: #3454b4;
+  transition: 0.1s;
+  font-size: 5.5rem;
+  cursor: pointer;
+}
+
+/* Tela do Game */
+
 .game-container{
-  margin: 5% auto;
+  margin: 10% auto;
+  padding: 1rem;
   height: 27rem;
   width: 27rem;
-  background-color: cadetblue;
+  background-color: #fdfdfd;
   display: flex;  
   flex-wrap: wrap;
 }
 
 .block-area1{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,6 +65,7 @@ body{
 }
 
 .block-area2{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,6 +76,7 @@ body{
 }
 
 .block-area3{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,6 +86,7 @@ body{
 }
 
 .block-area4{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,6 +97,7 @@ body{
 }
 
 .block-area5{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,6 +108,7 @@ body{
 }
 
 .block-area6{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,6 +118,7 @@ body{
 }
 
 .block-area7{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +128,7 @@ body{
 }
 
 .block-area8{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,6 +138,7 @@ body{
 }
 
 .block-area9{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,4 +148,52 @@ body{
 
 .hide{
   display: none;
+}
+
+/* Estilização do Modal */
+
+.modal{ 
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 6.25rem;  
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+} 
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-container{
+  margin: 3rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn{
+  border: none;
+  border-radius: 5px;
+  color: #fdfdfd;
+  padding: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+#modalTxt{
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 4rem;
 }
