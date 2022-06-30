@@ -1,0 +1,20 @@
+{
+"receita":{
+  "título": "Pão",
+  "ingredientes": [
+    {
+    "nome": "Farinha",
+    "quantidade": 12,
+    "unidade": "gramas"
+    },
+    {"nome": "Fermento",
+    "quantidade": 12,
+    "unidade": "gramas"
+    },
+    {"nome": "Açúcar",
+    "quantidade": 12,
+    "unidade": "gramas"
+    }
+  ]
+}
+}

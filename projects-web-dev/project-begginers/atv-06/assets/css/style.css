@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Pacifico&display=swap');
 
 body{
@@ -61,3 +62,68 @@ input{
   text-decoration: line-through;
   opacity: 0.5;
 }
+=======
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Pacifico&display=swap');
+
+body{
+  font-family: 'Inter', sans-serif;
+}
+
+header{
+  width: 100%;
+  background-color: coral;
+  color: #fff;
+  height: 4rem;
+  margin-bottom: 1rem;
+}
+
+h1{
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 1rem;
+  font-family: 'Pacifico', cursive;
+}
+
+main{
+  margin: 0 auto;
+  width: 80%;
+}
+
+
+input{
+  padding: .5rem;
+  border: none;
+  border: 1px solid #000;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; 
+}
+
+.btn{
+  font-size: 1.2rem;
+  background-color: coral;
+  color: #fff;
+  border: none;
+  border: 1px solid #000;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+
+.input-container{
+  margin-top: .5rem;
+  display: flex;
+  max-width: 15%;
+  margin-bottom: 1rem;
+}
+
+.li-container{
+  display: flex;
+  margin: 1rem 1rem 1rem 0;
+  border-bottom: 2px solid rgba(59, 59, 59, 0.144);
+}
+
+.task-complete, .task-complete span{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+>>>>>>> 88b09d17b3601e63679abc572e0efbf3037f3ea7

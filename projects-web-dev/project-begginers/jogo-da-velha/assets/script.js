@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const gameArea = document.getElementById('gameSection');
 const playerArea = document.getElementById('charSelect');
 const modal = document.getElementById('myModal');
@@ -123,3 +124,18 @@ function checkWin() {
       document.getElementById('modalTxt').innerHTML = 'Parabéns Player 2,<br> tu é muito Poggers';
   };
 }
+=======
+const gameArea = document.getElementById('gameSection');
+let game = [];
+
+gameArea.addEventListener('click', (event) => {
+  // gameArea.childNodes.forEach((grid) => {
+  //   game.push(grid);
+  // })
+  
+  console.log(game);
+  
+
+  event.target.innerHTML = 'X';
+})
+>>>>>>> 88b09d17b3601e63679abc572e0efbf3037f3ea7
