@@ -1,10 +1,7 @@
-{
-  "usuario": {
-    "nome": "Protagonista",
-    "sobrenome": "RPG"
-  },
-  "usuario2": {
-    "nome": "Antony",
-    "sobrenome": "Cass"
+[
+  {
+    "name": "Mayco",
+    "lastName": "Recalque",
+    "age": "16"
   }
-}
+]
