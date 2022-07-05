@@ -1,0 +1,11 @@
+{
+  "name": "server-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "npx nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,6 +1,5 @@
 // Disponibilizamos recursos para o usuário, que os requisita
 // Recursos são tudo que possuímos e mostramos para o Usuário 
-
 // Request são os atributos e métodos, é de onde vem a requisição
 // Response é a resposta que será dada pelo servidor a request
 
@@ -14,6 +13,17 @@ const getUsers = (request, response) => {
   const {name, lastName, age, remove} = URL.parse(request.url, true).query;
 
   let message = '';
+
+  response.writeHead(200, {
+    'Access-Control-Allow-Origin': '*'
+  });
+
+  // if (!name) {
+  //   response.writeHead(400, {
+  //     'Access-Control-Allow-Origin': '*'
+  //   });
+  //   return response.end('Não foi informado o nome');
+  // }
 
   if (name || lastName || age) { 
     const user = {
