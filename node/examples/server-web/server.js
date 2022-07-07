@@ -6,8 +6,6 @@ const server = http.createServer((request, response) => {
   console.log('server web');
   const url = request.url;
 
-  
-
   let file = url === '/' ? 'index.html' : request.url;
 
   if (url === '/cadastro') {
