@@ -1,12 +1,30 @@
-exports.findAll =  (request, response) => {
-    const query = request.query;
-    console.log('Query string authors', query);
-    return response.status(200).send('Acessando recurso /authors method get');
+const database = require('../databases/knex'); 
+
+// npx knex migrate:make create-table-authors
+
+exports.findAll = async (request, response) => {
+    try {
+      const sql = await database.select('*').from('authors');
+
+      return response.status(200).send({
+        authors: sql
+      });
+    } catch (error) {
+      return response.status(500).send({error: error?.message || e});
+    }
 }
 
-exports.create = (request, response) =>{
-  console.log('Recebendo dados', request.body)
-  return response.status(200).send('Acessando recurso /authors method post')
+exports.create = async (request, response) =>{
+  try {
+    await database('authors').insert(request.body);
+
+    console.log('Recebendo dados', request.body);
+    return response.status(200).send({
+      status: 'sucess'
+    });
+  } catch (error) {
+    return response.status(500).send({error: error?.message || e});
+  }
 }
 
 exports.getId = (request, response) =>{
