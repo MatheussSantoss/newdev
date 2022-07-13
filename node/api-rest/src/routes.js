@@ -12,17 +12,16 @@ routes.post('/authors', authorsController.create)
 routes.get('/authors/:id', authorsController.getId)
 routes.delete('/authors/:id', authorsController.delete)
 routes.put('/authors/:id', authorsController.put)
-routes.patch('/authors/:id', authorsController.patch)
-
 
 //-----------------------BookController---------------------
 
-routes.get('/',bookController.book)
+routes.get('/books', bookController.get)
+routes.post('/books', bookController.post)
 
-routes.get('/books', bookController.bookGet)
-routes.delete('/books', bookController.bookDelete)
-routes.put('/books', bookController.bookPut)
-routes.patch('/books', bookController.bookPatch)
+routes.get('/books/:id', bookController.getId)
+routes.delete('/books/:id', bookController.delete)
+routes.put('/books/:id', bookController.put)
+// routes.patch('/books', bookController.bookPatch)
 
 //------------------------------------------------------
 module.exports = routes
