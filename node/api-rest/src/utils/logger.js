@@ -16,6 +16,4 @@ function log(message) {
   emitter.emit('log', message);
 };
 
-console.log('ergui')
-
 module.exports = log;
