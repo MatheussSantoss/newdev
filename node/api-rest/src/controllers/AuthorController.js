@@ -1,5 +1,4 @@
 const database = require('../databases/knex'); 
-const log = require('../utils/logger');
 const logger = require('../utils/logger');
 
 // npx knex migrate:make create-table-authors
@@ -70,7 +69,6 @@ exports.put = async (request, response) =>{
     const params = request.params;
 
     // Entrará dentro do Banco de dados, irá pegar tudo contido dentro da tabela 'Authors'
-    // 
     const [previousAuthor] = await database.select('*').from('authors').where({id: params.id}).limit(1)
     // where('id', params.id);
 
@@ -95,4 +93,3 @@ exports.put = async (request, response) =>{
     return response.status(500).send({error: error?.message || e});
   }
 }
-

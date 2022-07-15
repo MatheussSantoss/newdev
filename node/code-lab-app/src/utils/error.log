@@ -1,0 +1,1 @@
+select * from `professors` - SQLITE_ERROR: no such table: professorsselect * from `professors` - SQLITE_ERROR: no such table: professors
