@@ -3,9 +3,14 @@ const logger = require('../utils/logger');
 
 exports.getAll = async(req, res) => {
   try {
-    const sql = await database.select('*').from('professors');
+    const sql = await database.select(
+      ['lessons.id', 'lessons.title', 'lessons.description', 'lessons.videoURL', 'professors.name as professorName', 'courses.title as courseTitle'])
+      .from('lessons')
+      .innerJoin('professors', 'professors.id', 'lessons.professorId')
+      .innerJoin('courses', 'courses.id', 'lessons.courseId');
+
     return res.status(200).send({
-      professors: sql
+      lessons: sql
     });
   } catch (error) {
     logger(error.message);
@@ -15,10 +20,10 @@ exports.getAll = async(req, res) => {
 
 exports.post = async(req, res) => {
   try {
-    if (!req.body.name || !req.body.avatar) {
+    if (!req.body.title || !req.body.description) {
       return res.status(500).send(`Informação Incompleta`);
     }
-    await database('professors').insert(req.body);
+    await database('lessons').insert(req.body);
     console.log('Receiving Data', req.body);
     return res.status(200).send({
       status: 'Sucessfully Added'
@@ -33,13 +38,13 @@ exports.getId = async(req, res) => {
   try {
     const params = req.params;
 
-    const [professor] = await database.select('*').from('professors').where({id: params.id}).limit(1);
+    const [lesson] = await database.select('*').from('lessons').where({id: params.id}).limit(1);
     
-    if (!professor) {
+    if (!lesson) {
       return res.status(404).send(`O registro com id: ${params.id} não foi encontrado`);
     }
 
-    return res.status(200).send({name: professor.name, avatar: professor.avatar});
+    return res.status(200).send({name: lesson.title, avatar: lesson.description});
   } catch (error) {
     logger(error.message);
     return res.status(500).send({error: error?.message || e});
@@ -49,14 +54,14 @@ exports.getId = async(req, res) => {
 exports.delete = async (req, res) => {
   try {
     const params = req.params;
-    const [professorToRemove] = await database.select('*').from('professors').where({id: params.id}).limit(1); 
+    const [lessonToRemove] = await database.select('*').from('lessons').where({id: params.id}).limit(1); 
 
-    if (!professorToRemove) {
+    if (!lessonToRemove) {
       return res.status(404).send(`O registro com id: ${params.id} não foi encontrado`);
     };
 
-    await database.delete(params.id).from('professors').where({id: params.id});
-    return res.status(200).send({status: `Registro removido com sucesso`, professor: professorToRemove});
+    await database.delete(params.id).from('lessons').where({id: params.id});
+    return res.status(200).send({status: `Registro removido com sucesso`, lesson: lessonToRemove});
   } catch (error) {
     logger.error(error.message);
     return res.status(500).send({error: error?.message || e});
@@ -66,15 +71,15 @@ exports.delete = async (req, res) => {
 exports.put = async(req, res) => {
   try {
     const params = req.params;
-    const [previousProfessor] = await database.select('*').from('professors').where({id: params.id}).limit(1); 
+    const [previousLesson] = await database.select('*').from('lessons').where({id: params.id}).limit(1); 
 
-    if (!previousProfessor) {
+    if (!previousLesson) {
       return res.status(404).send(`O registro com id: ${params.id} não foi encontrado`);
     };
 
-    const nextProfessor = req.body; 
-    await database.update({name: nextProfessor.name, avatar: nextProfessor.avatar}).from('professors').where({id: previousProfessor.id});
-    return res.status(200).send({status: `Registro atualizado com sucesso`, data: nextProfessor});
+    const nextLesson = req.body; 
+    await database.update({title: nextLesson.title, description: nextLesson.description}).from('lessons').where({id: previousLesson.id});
+    return res.status(200).send({status: `Registro atualizado com sucesso`, data: nextLesson});
   } catch (error) {
     logger.error(error.message);
     return res.status(500).send({error: error?.message || e});

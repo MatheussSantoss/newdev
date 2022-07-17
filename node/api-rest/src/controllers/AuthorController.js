@@ -21,7 +21,7 @@ exports.create = async (request, response) =>{
 
     console.log('Recebendo dados', request.body);
     return response.status(200).send({
-      status: 'sucess'
+      status: 'success'
     });
   } catch (error) {
     logger(error.message);

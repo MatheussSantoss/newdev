@@ -3,7 +3,10 @@ const logger = require('../utils/logger');
 
 exports.getAll = async(req, res) => {
   try {
-    const sql = await database.select('*').from('courses');
+    const sql = await database.select(
+      ['courses.id','courses.title', 'courses.description', 'professors.name as professorName']
+    ).from('courses').innerJoin('professors', 'professors.id', 'courses.professorId');
+
     return res.status(200).send({
       courses: sql
     });
@@ -56,7 +59,7 @@ exports.delete = async (req, res) => {
     };
 
     await database.delete(params.id).from('courses').where({id: params.id});
-    return res.status(200).send({status: `Registro atualizado com sucesso`, course: courseToRemove});
+    return res.status(200).send({status: `Registro removido com sucesso`, course: courseToRemove});
   } catch (error) {
     logger.error(error.message);
     return res.status(500).send({error: error?.message || e});
@@ -72,10 +75,8 @@ exports.put = async(req, res) => {
       return res.status(404).send(`O registro com id: ${params.id} não foi encontrado`);
     };
 
-    const nextCourse = req.body 
-    console.log('author ENCONTRADO ->', previousCourse);
-    console.log('author UPDATE ->', nextCourse);
-    await database.update({name: nextCourse.title, avatar: nextCourse.description}).from('courses').where({id: previousCourse.id});
+    const nextCourse = req.body; 
+    await database.update({title: nextCourse.title, description: nextCourse.description}).from('courses').where({id: previousCourse.id});
     return res.status(200).send({status: `Registro atualizado com sucesso`, data: nextCourse});
   } catch (error) {
     logger.error(error.message);
