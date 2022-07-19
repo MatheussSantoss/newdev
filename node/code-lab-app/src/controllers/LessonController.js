@@ -39,12 +39,21 @@ exports.getId = async(req, res) => {
     const params = req.params;
 
     const [lesson] = await database.select('*').from('lessons').where({id: params.id}).limit(1);
+
+    const [sql] = await database.select(
+      ['lessons.id', 'lessons.title', 'lessons.description', 'lessons.videoURL', 'professors.name as professorName', 'courses.title as courseTitle'])
+      .from('lessons')
+      .innerJoin('professors', 'professors.id', 'lessons.professorId')
+      .innerJoin('courses', 'courses.id', 'lessons.courseId');
     
+    lesson.professorId = sql.professorName;
+    lesson.courseId = sql.courseTitle;
+
     if (!lesson) {
       return res.status(404).send(`O registro com id: ${params.id} não foi encontrado`);
     }
 
-    return res.status(200).send({name: lesson.title, avatar: lesson.description});
+    return res.status(200).send({lesson});
   } catch (error) {
     logger(error.message);
     return res.status(500).send({error: error?.message || e});

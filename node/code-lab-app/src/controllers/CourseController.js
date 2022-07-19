@@ -3,9 +3,7 @@ const logger = require('../utils/logger');
 
 exports.getAll = async(req, res) => {
   try {
-    const sql = await database.select(
-      ['courses.id','courses.title', 'courses.description', 'professors.name as professorName']
-    ).from('courses').innerJoin('professors', 'professors.id', 'courses.professorId');
+    const sql = await database.select('*').from('courses');
 
     return res.status(200).send({
       courses: sql
