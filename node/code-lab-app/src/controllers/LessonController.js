@@ -1,3 +1,4 @@
+const { default: knex } = require('knex');
 const database = require('../databases/knex');
 const logger = require('../utils/logger');
 
@@ -20,9 +21,46 @@ exports.getAll = async(req, res) => {
 
 exports.post = async(req, res) => {
   try {
-    if (!req.body.title || !req.body.description) {
-      return res.status(500).send(`Informação Incompleta`);
+    const requiredFields = ["title", "videoURL", "courseId", "professorId"];
+    const requiredFieldsExist = [];
+
+    requiredFields.forEach(fields => {
+      if (!req.body[fields]) {
+        requiredFieldsExist.push(fields);
+      }
+    })
+
+    if (!Object.keys(req.body).length) {
+      return res.status(400).send({
+        status: 'Informação Incompleta',
+        requiredFiles: requiredFieldsExist
+      });
     }
+
+    // git clone
+
+    if (requiredFieldsExist.length) {
+      return res.status(400).send({
+        status: 'Arquivos Faltantes',
+        requiredFiles: requiredFieldsExist
+      });
+    };
+
+    const [courses] = await database.select('*').from('courses').where({id: Number(req.body.courseId)});
+    const [professors] = await database.select('*').from('professors').where({id: Number(req.body.professorId)});
+
+    if(!courses ) {
+      return res.status(404).send({
+        status: 'Curso Não Encontrado'
+      });
+    };
+
+    if(!professors) {
+      return res.status(404).send({
+        status: 'Professor Não Encontrado'
+      });
+    };
+
     await database('lessons').insert(req.body);
     console.log('Receiving Data', req.body);
     return res.status(200).send({

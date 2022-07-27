@@ -17,7 +17,7 @@ exports.getAll = async(req, res) => {
 exports.post = async(req, res) => {
   try {
     if (!req.body.title || !req.body.description) {
-      return res.status(500).send(`Informação Incompleta`);
+      return res.status(400).send(`Informação Incompleta ou Incorreta`);
     }
     await database('courses').insert(req.body);
     console.log('Receiving Data', req.body);
