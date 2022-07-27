@@ -13,9 +13,13 @@ export class CardExampleComponent implements OnInit {
   @Input () link2Param: string = '';
   @Input () subtitleParam: string = '';
 
+  color: string = '#000';
+
+  showFruit: boolean = false;
+  author: string = 'Dietricx';
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
