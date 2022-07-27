@@ -8,5 +8,8 @@
   </div>
 
   <h2 *ngIf="author == 'Dietricx'">Cajuzinho</h2>
+
+  <button (click) = 'addName()' class="btn btn-outline-primary">Clique-me</button>
+  <app-list-items [listItem] = "list"></app-list-items>
 </div>
 

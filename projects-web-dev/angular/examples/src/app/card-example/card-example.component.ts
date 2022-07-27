@@ -18,7 +18,15 @@ export class CardExampleComponent implements OnInit {
   showFruit: boolean = false;
   author: string = 'Dietricx';
 
-  constructor() { }
+  addName: any;
+  list: string[] = [];
+
+  constructor() { 
+    this.addName = () => {
+      this.list.push('Dietricx');
+      console.log('bsvds', this.list);
+    }
+  }
 
   ngOnInit(): void {}
 

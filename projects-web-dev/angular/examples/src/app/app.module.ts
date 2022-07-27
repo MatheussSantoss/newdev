@@ -8,6 +8,7 @@ import { CardLayoutComponent } from './card-layout/card-layout.component';
 import { CardFooterComponent } from './card-footer/card-footer.component';
 import { LogoComponent } from './logo/logo.component';
 import { SocialComponent } from './social/social.component';
+import { ListItemsComponent } from './list-items/list-items.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SocialComponent } from './social/social.component';
     CardLayoutComponent,
     CardFooterComponent,
     LogoComponent,
-    SocialComponent
+    SocialComponent,
+    ListItemsComponent
   ],
   imports: [
     BrowserModule,

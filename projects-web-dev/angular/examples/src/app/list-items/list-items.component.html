@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let item of listItem; let indexOfElement=index;">
+    {{item}}
+    <button (click)="remove(indexOfElement)" class="btn btn-outline-danger">Remover</button>
+  </li>
+</ul>
