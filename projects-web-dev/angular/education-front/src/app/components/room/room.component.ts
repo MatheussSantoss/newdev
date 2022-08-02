@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { lessonType } from 'src/app/course.service';
 
 @Component({
   selector: 'app-room',
@@ -6,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./room.component.css']
 })
 export class RoomComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

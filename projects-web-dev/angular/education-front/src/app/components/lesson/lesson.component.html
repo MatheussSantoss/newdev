@@ -1,4 +1,4 @@
-<div class='cursor-pointer'>
+<div class='cursor-pointer' (click)="onClickLesson(lessonId)">
   <span class="date-format">28/07/2022</span>
 
   <div class="card-lesson p-2 mt-2">
@@ -17,7 +17,7 @@
     </header>
 
     <strong class="d-block mt-3">
-      Aula de Lógica de programação
+      {{lessonId}} - {{title}}
     </strong>
 
   </div>
