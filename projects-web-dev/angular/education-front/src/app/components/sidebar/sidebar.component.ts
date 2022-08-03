@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { lessonType } from 'src/app/course.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { lessonType } from 'src/app/course.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  @Output () populateLessonEvent: EventEmitter<any> = new EventEmitter();
   @Input () lessons: lessonType[] | null = null;
 
   constructor() { }
@@ -15,4 +16,8 @@ export class SidebarComponent implements OnInit {
     console.log('log no component room', this.lessons);
   }
 
+  populateLesson(lesson: any){
+    console.log('populate lesson ', lesson);
+    this.populateLessonEvent.emit(lesson);
+  }
 }

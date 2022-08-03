@@ -6,6 +6,7 @@ export type InstructorType = {
 }
 
 export type LessonResponseType = {
+  id: number;
   title: string;
   description: string;
   videoId: string;

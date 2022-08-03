@@ -1,18 +1,7 @@
 <div class="flex-grow-1">
   <div class="d-flex justify-content center">
     <div class="h-100 w-100 container-video">
-      <vm-player controls>
-        <vm-video cross-origin="true" poster="https://media.vimejs.com/poster.png">
-          <source data-src="https://media.vimejs.com/720p.mp4" type="video/mp4" />
-          <track
-          default
-          kind="subtitles"
-          src="https://media.vimejs.com/subs/english.vtt"
-          srclang="en"
-          label="English"
-          />
-        </vm-video>
-      </vm-player>
+      <app-video-player [videoId]="lessonParam.videoId"></app-video-player>
     </div>
   </div>
 
@@ -20,11 +9,11 @@
     <section class="d-flex aligm-item-center justify-content-between">
       <div class="flex-1">
         <h1 class="text-2xl font-bold">
-          Título da aula
+          {{lessonParam?.title}}
         </h1>
 
         <p class="mt-4 text-gray-200 leading-relaxed">
-          Descrição da aula!
+          {{lessonParam?.description}}
         </p>
 
         <div class="d-flex aligm-item-center gap-2 mt-3">
@@ -32,13 +21,12 @@
             height="50"
             width="50"
             class="rounded-5 border"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+            src="{{lessonParam?.instructor.avatarUrl}}"
             alt=""
           />
 
           <div class="leading-relaxed">
-            <strong class="font-bold text-2xl d-block">Chloe</strong>
-            <span class="text-gray-200 text-sm d-block">bio</span>
+            <strong class="font-bold text-2xl d-block">{{lessonParam?.instructor.fullName}}</strong>
           </div>
 
         </div>

@@ -1,8 +1,14 @@
 <div class="d-flex flex-column h-100">
   <app-header></app-header>
-
-  <main class="d-flex">
-    <app-room class="flex-grow-1"></app-room>
-    <app-sidebar [lessons]="course.lessons"></app-sidebar>
+  
+  <main class="d-flex" >
+    <app-room *ngIf="lessonToShow; else errorScreen" [lessonParam]="lessonToShow" class="flex-grow-1"></app-room>
+    <app-sidebar (populateLessonEvent)="setLessonToShow($event)" [lessons]="course.lessons"></app-sidebar>
   </main>
+
+  <ng-template #errorScreen>
+    <div class="flex-grow-1">
+     <app-welcome-room></app-welcome-room>
+   </div>
+  </ng-template>
 </div>

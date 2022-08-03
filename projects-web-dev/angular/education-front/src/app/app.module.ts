@@ -10,6 +10,9 @@ import { LessonComponent } from './components/lesson/lesson.component';
 import { RoomComponent } from './components/room/room.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { VimeModule } from '@vime/angular';
+import { WelcomeRoomComponent } from './components/welcome-room/welcome-room.component';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { VimeModule } from '@vime/angular';
     LogoComponent,
     LessonComponent,
     RoomComponent,
-    SidebarComponent
+    SidebarComponent,
+    WelcomeRoomComponent,
+    VideoPlayerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -29,4 +29,10 @@ export class CourseService {
 
     return data;
   }
+
+  async getCourses(){
+    const response = await fetch(`htpp://localhost:5445`);
+    const data = await response.json() as CourseResponseType;
+    return data;
+  }
 }
