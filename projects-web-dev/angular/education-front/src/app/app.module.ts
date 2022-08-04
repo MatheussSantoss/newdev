@@ -14,6 +14,7 @@ import { WelcomeRoomComponent } from './components/welcome-room/welcome-room.com
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ListCoursesComponent } from './components/list-courses/list-courses.com
     WelcomeRoomComponent,
     VideoPlayerComponent,
     HomeComponent,
-    ListCoursesComponent
+    ListCoursesComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

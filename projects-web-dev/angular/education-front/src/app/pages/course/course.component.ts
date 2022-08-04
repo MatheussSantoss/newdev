@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CourseResponseType, CourseService } from 'src/app/course.service';
 
 @Component({
@@ -11,13 +12,17 @@ export class CourseComponent implements OnInit {
   course: CourseResponseType;
   lessonToShow: any;
 
-  constructor(courseService: CourseService) {
+  constructor(courseService: CourseService, private route: ActivatedRoute) {
     this.courseService = courseService;
     this.course = {} as CourseResponseType;
    }
 
   async ngOnInit(): Promise<void> {
-    this.course = await this.courseService.getCourseById(1);
+    const params = this.route.snapshot.params;
+    const courseId = params['courseId'];
+    console.log(courseId);
+
+    this.course = await this.courseService.getCourseById(Number(courseId));
   }
 
   async setLessonToShow(lesson: any){

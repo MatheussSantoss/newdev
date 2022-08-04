@@ -1,6 +1,15 @@
 .card-border-w{
-  border-bottom: 1px solid rgba(255,255,255, 0.5);
+  border-bottom: 1px solid #00b37e;
   margin-top: 4.250rem !important;
+  transition: .5s;
+}
+
+.card-border-w:hover{
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255);
+  border-radius: 5px;
+  /* color: black; */
+  transition: .5s;
 }
 
 .data-font{

@@ -7,9 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VideoPlayerComponent implements OnInit {
   @Input () videoId?: string;
+
+  urlVideo?: string;
   constructor() { }
 
   ngOnInit(): void {
+    this.urlVideo = `https://www.youtube.com/embed/${this.videoId}`;
   }
 
 }

@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent
   },
-  {path: 'course', component: CourseComponent},
+  {path: 'courses/:courseId', component: CourseComponent},
 ];
 
 @NgModule({
