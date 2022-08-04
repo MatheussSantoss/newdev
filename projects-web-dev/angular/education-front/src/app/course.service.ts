@@ -31,7 +31,7 @@ export class CourseService {
   }
 
   async getCourses(){
-    const response = await fetch(`htpp://localhost:5445`);
+    const response = await fetch(`http://localhost:5445/courses`);
     const data = await response.json() as CourseResponseType;
     return data;
   }

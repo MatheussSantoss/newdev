@@ -1,0 +1,12 @@
+.card-border-w{
+  border-bottom: 1px solid rgba(255,255,255, 0.5);
+  margin-top: 4.250rem !important;
+}
+
+.data-font{
+  font-size: 1.5rem
+}
+
+.title-font{
+  font-size: 2rem;
+}

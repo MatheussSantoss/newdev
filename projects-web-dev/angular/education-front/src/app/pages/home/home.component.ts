@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CourseResponseType, CourseService } from 'src/app/course.service';
+import { Component, OnInit} from '@angular/core';
+import { CourseResponseType, CourseService} from 'src/app/course.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +8,16 @@ import { CourseResponseType, CourseService } from 'src/app/course.service';
 })
 export class HomeComponent implements OnInit {
   courseService: CourseService;
-  course: CourseResponseType;
+  courses?: any;
+  course: any;
 
-  constructor() { }
+  constructor(courseService: CourseService) {
+    this.courseService = courseService;
+    this.courses = {} as CourseResponseType;
+   }
 
-  ngOnInit(): void {
+   async ngOnInit(): Promise<void> {
+    this.courses = await this.courseService.getCourses();
+    console.log('course home -> ', this.courses);
   }
-
 }

@@ -13,6 +13,7 @@ import { VimeModule } from '@vime/angular';
 import { WelcomeRoomComponent } from './components/welcome-room/welcome-room.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ListCoursesComponent } from './components/list-courses/list-courses.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './pages/home/home.component';
     SidebarComponent,
     WelcomeRoomComponent,
     VideoPlayerComponent,
-    HomeComponent
+    HomeComponent,
+    ListCoursesComponent
   ],
   imports: [
     BrowserModule,
